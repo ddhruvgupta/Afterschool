@@ -1,9 +1,11 @@
 <?php
+
 session_start();
 include "bootstrap.php";
 include "connection.php";
 include "navbar.php";
 include "bootstrap_js.php";
+
 
 
 if(isset($_SESSION['success'])){
@@ -19,15 +21,6 @@ if(isset($_SESSION['success'])){
         unset($_SESSION['error']);
       }
 
-
-
-
-
-} else{
-    die("ACCESS DENIED");
-}
-
-if(isset($_POST['add']) ){
   $sql="insert into users(firstName, lastName, username, password,admin)
     values (:fname,:lname,:username,:password,1)";
 
@@ -40,44 +33,20 @@ if(isset($_POST['add']) ){
     $statement->execute(array(':fname'=>$fname,':lname'=>$lname,':username'=>$username,':password'=>$check,
           ));
 
-    $_SESSION['insert'] = "New User Successfully Entered";
+          $_SESSION['insert'] = "New User Successfully Entered";
+          echo $fname;
+          // header("location:index.php"); //change to users page
+          // return;
 
-  header("location:index.php");
-  return;
+
+  //echo $table;
+} else{
+    die("ACCESS DENIED");
 }
 
-if(isset($_POST['cancel'])){
-  header("location:index.php");
-  return;
-}
+
+
+
+
 
 ?>
-
-<html>
-<head>
-  <title></title>
-</head>
-<body>
-
-
-
-  <div class="container">
-    <div class="row">
-
-      <div class="col">
-          <div class="panel panel-default">
-              <div class="panel-body"  style="overflow:auto">
-                <?php include "new_user_form.php"; ?>
-
-                  </div>
-                </form>
-
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-</body>
-</html>

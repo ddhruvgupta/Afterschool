@@ -1,8 +1,8 @@
  <?php // Do not put any HTML above this line
 SESSION_START();
-
-error_log("");
-error_log("");
+//
+// error_log("");
+// error_log("");
 require_once "connection.php";
 require_once "bootstrap.php";
 include "checkPassword.php";
@@ -31,18 +31,19 @@ if ( isset($_POST['email']) && isset($_POST['pass']) ) {
     } else {
 
 
-      $salt = 'XyZzy12*_';
+
       $check = hash('md5', $salt.$_POST['pass']);
-      error_log("Username= ".$_POST['email']);
-      error_log("Password= ".$_POST['pass']);
-      error_log("hash1= ".$check);
-      error_log("hash2= ".$stored_hash);
+      // error_log("Username= ".$_POST['email']);
+      // error_log("Password= ".$_POST['pass']);
+      // error_log("hash1= ".$check);
+      // error_log("hash2= ".$stored_hash);
 
       $username = $_POST['email'];
       $pass = $_POST['pass'];
 
       $login = check($username, $pass);
       if($login==1){
+        $_SESSION['success']=1;
         header("Location: index.php");
         return;
           }else {
@@ -62,12 +63,13 @@ if ( isset($_POST['email']) && isset($_POST['pass']) ) {
 <html>
 <head>
 <?php require_once "bootstrap.php"; ?>
+<link href="signin.css" rel="stylesheet">
 <title>Dhruv Gupta Login Page</title>
 </head>
-<body>
+<body class="text-center">
   <script src="login.js"></script>
 <div class="container">
-<h1>Please Log In</h1>
+<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
 <?php
 // Note triple not equals and think how badly double
 // not equals would work here...
@@ -77,18 +79,24 @@ if ( isset($_SESSION['error']) ) {
   }
 
 ?>
-  <form method="POST">
-    <label for="email">User Name</label>
-    <input type="text" name="email" id="email"><br/>
-    <label for="pass">Password</label>
-    <input type="password" name="pass" id="pass"><br/>
 
-    <input type="submit" value="Log In" onclick="return doValidate();">
-    <input type="submit" name="cancel" value="Cancel">
+  <form id='login' class="form-signin" method="POST">
+
+    <img class="mb-4" src="KarateGirlicon.png" alt="" width="100" height="100">
+    <label for="email" class="sr-only">User Name</label>
+    <input type="text" name="email" id="email"  class="form-control">
+    <label for="pass" class="sr-only">Password</label>
+    <input type="password" class="form-control" name="pass" id="pass"><br/>
+
+
+
+
+
+    <input class="btn btn-lg btn-primary btn-block" type="submit" value="Log In" onclick="return doValidate();">
+    <!-- <input type="submit" name="cancel" value="Cancel"> -->
   </form>
 <p>
-For a password hint, view source and find a password hint
-in the HTML comments.
+
 <!-- Hint: The password is the four character sound a cat
 makes (all lower case) followed by 123. -->
 </p>

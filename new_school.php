@@ -28,21 +28,17 @@ if(isset($_SESSION['success'])){
 }
 
 if(isset($_POST['add']) ){
-  $sql="insert into users(firstName, lastName, username, password,admin)
-    values (:fname,:lname,:username,:password,1)";
+  $sql="insert into tbl_school_info(name, address)
+    values (:name,:address)";
 
-    $check = hash('md5', $salt.$_POST['pass1']);
-    $username = $_POST['email'];
-    $fname = $_POST['firstName'];
-    $lname = $_POST['lastName'];
+    
 
     $statement = $pdo->prepare($sql);
-    $statement->execute(array(':fname'=>$fname,':lname'=>$lname,':username'=>$username,':password'=>$check,
-          ));
+    $statement->execute(array(':name'=>$_POST['schoolName'],':address'=>$_POST['address']));
 
-    $_SESSION['insert'] = "New User Successfully Entered";
+    $_SESSION['insert'] = "New School Successfully Entered";
 
-  header("location:index.php");
+  header("location:view_school_info.php");
   return;
 }
 
@@ -67,7 +63,7 @@ if(isset($_POST['cancel'])){
       <div class="col">
           <div class="panel panel-default">
               <div class="panel-body"  style="overflow:auto">
-                <?php include "new_user_form.php"; ?>
+                <?php include "new_school_form.php"; ?>
 
                   </div>
                 </form>

@@ -7,6 +7,7 @@ if (r == true) {
     txt = "You pressed OK!";
 } else {
     txt = "You pressed Cancel!";
+    event.preventDefault();
 }
 console.log(txt);
 }
