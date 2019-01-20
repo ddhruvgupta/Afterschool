@@ -5,9 +5,10 @@ A PHP-MySQL application which aims to provide a software solution to keep track 
 The application also has a feature to keep track of which student is registered for which class in the afterschool program.
 
 ### Screenshots
-<img src="https://raw.githubusercontent.com/ddhruvgupta/afterschool/master/Screenshots/Faculty.png" width="400" />
-<img src="https://raw.githubusercontent.com/njdelima/cs2340-group59/master/screenshots/2.png" width="400" />
-<img src="https://raw.githubusercontent.com/njdelima/cs2340-group59/master/screenshots/3.png" width="400" />
-<img src="https://raw.githubusercontent.com/njdelima/cs2340-group59/master/screenshots/4.png" width="400" />
-<img src="https://raw.githubusercontent.com/njdelima/cs2340-group59/master/screenshots/5.png" width="400" />
-<img src="https://raw.githubusercontent.com/njdelima/cs2340-group59/master/screenshots/6.png" width="400" />
+<img src="https://raw.githubusercontent.com/ddhruvgupta/afterschool/master/Screenshots/Faculty.png" width="1000" />
+<img src="https://raw.githubusercontent.com/ddhruvgupta/afterschool/master/Screenshots/Students.png" width="1000" />
+<img src="https://raw.githubusercontent.com/ddhruvgupta/afterschool/master/Screenshots/Pick Up.png" width="1000" />
+<img src="https://raw.githubusercontent.com/ddhruvgupta/afterschool/master/Screenshots/Class Registeration.png" width="1000" />
+<img src="https://raw.githubusercontent.com/ddhruvgupta/afterschool/master/Screenshots/Archiving.png" width="1000" />
+<img src="https://raw.githubusercontent.com/ddhruvgupta/afterschool/master/Screenshots/School Info.png" width="1000" />
+
